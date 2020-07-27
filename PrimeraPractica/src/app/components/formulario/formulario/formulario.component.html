@@ -17,7 +17,7 @@
                     <td width="50%">
                         <input type="text" class="form-control" id="txtnomb" #nomb="ngModel" placeholder="Escriba el nombre " name="nomb" size="35" [(ngModel)]="model.nombre" required pattern="[A-Za-z ]+">
                         <div *ngIf="nomb.touched && !nomb.valid">
-                            <div *ngIf="nomb.errors.required">Debe ingresar el nombre del empleado</div>
+                            <div *ngIf="nomb.errors.required">Debe ingresar el nombre del estudiante</div>
                         </div>
                         <div *ngIf="!nomb.valid">
                             <div *ngIf="nomb.errors.pattern">Solo debe ingresar letras</div>

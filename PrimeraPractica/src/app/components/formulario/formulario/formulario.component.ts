@@ -20,7 +20,7 @@ export class FormularioComponent implements OnInit {
   guardar(estudiante: Estudiante) {
     this.servicio.crearEstudiante(estudiante).subscribe(data => {
       alert('Se guardo el estudiante');
-      this.routes.navigate(['empleados']);
+      this.routes.navigate(['estudiantes']);
     });
   }
 
