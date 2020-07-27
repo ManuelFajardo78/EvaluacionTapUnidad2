@@ -1,0 +1,57 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div align="center" class="form-group">
+            <table border="0">
+                <tr>
+                    <td width="50%"> IDENTIFICADOR: </td>
+                    <td width="50%">
+                        <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba el Identificador" name="id" size="35" [(ngModel)]="model.id" maxlength="7" required>
+                        <div *ngIf="id.touched && !id.valid">
+                            <div *ngIf="id.errors.required">Debe ingresar el ID</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td width="50%"> Nombre estudiante: </td>
+                    <td width="50%">
+                        <input type="text" class="form-control" id="txtnomb" #nomb="ngModel" placeholder="Escriba el nombre " name="nomb" size="35" [(ngModel)]="model.nombre" required pattern="[A-Za-z ]+">
+                        <div *ngIf="nomb.touched && !nomb.valid">
+                            <div *ngIf="nomb.errors.required">Debe ingresar el nombre del empleado</div>
+                        </div>
+                        <div *ngIf="!nomb.valid">
+                            <div *ngIf="nomb.errors.pattern">Solo debe ingresar letras</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+
+                    <tr>
+                        <td width="50%"> Direccion: </td>
+                        <td width="50%">
+                            <input type="text" class="form-control" id="txtdirec" #direc="ngModel" size="35" [(ngModel)]="model.direccion" name="direc" required>
+                            <div *ngIf="direc.touched && !direc.valid">
+                                <div *ngIf="direc.errors.required">Debe ingresar la direccion</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%"> telefono: </td>
+                        <td width="50%">
+                            <input type="text" class="form-control" id="txttelef" #telef="ngModel" size="35" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="model.telefono" name="telef" maxlength="13" required>
+                            <div *ngIf="telef.touched && !telef.valid">
+                                <div *ngIf="telef.errors.required">Debe ingresar el telefono</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%"> Correo Electronico: </td>
+                        <td width="50%">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="model.corre_electronico" name="corre_electronico" size="35">
+                        </td>
+                    </tr>
+            </table>
+            <button type="submit" size="100" class="btn btn-primary">Ingresar</button>
+        </div>
+    </form>
+</div>
