@@ -26,9 +26,9 @@ public class AlumnoControl {
         return alumnoR.findAll();
     }
     
-    @RequestMapping(value="/alumno/{cedula}", method=RequestMethod.GET)
-    public List<Alumno> getEmpleadoById(String cedula) {
-        return alumnoR.buscarPorcedula(cedula);
+    @RequestMapping(value="/alumno/{idalumno}", method=RequestMethod.GET)
+    public List<Alumno> getAlumno(String cedula) {
+        return alumnoR.buscarPorCedula(cedula);
     }
     
     @PostMapping("/alumno")

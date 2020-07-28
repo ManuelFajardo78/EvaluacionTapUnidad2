@@ -8,8 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public interface AlumnoRepositorio extends JpaRepository<Alumno, String>{
-    @Query(value="Select al from alumno al where al.cedula = cedula")
-    List<Alumno> buscarPorcedula(@Param("cedula")String cedula);
+public interface AlumnoRepositorio extends JpaRepository<Alumno, Long>{
+    @Query(value="Select al from Alumno al where al.cedula = cedula")
+    List<Alumno> buscarPorCedula(@Param("cedula")String cedula);
 }
