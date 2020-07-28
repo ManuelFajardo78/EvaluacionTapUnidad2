@@ -36,7 +36,6 @@ public class AlumnoControl {
     @CrossOrigin
     public Alumno createAlumno(@Valid @RequestBody Alumno alumno){
         return alumnoR.save(alumno);
-        
     }
     
 }

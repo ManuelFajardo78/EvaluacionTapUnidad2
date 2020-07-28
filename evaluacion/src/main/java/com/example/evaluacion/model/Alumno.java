@@ -30,6 +30,19 @@ public class Alumno {
     @Column(name = "institucion", nullable = false)
     private String institucion;
 
+    public Alumno(long idalumno, String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String institucion) {
+        this.idalumno = idalumno;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.institucion = institucion;
+    }
+
+    
+    
     public long getIdalumno() {
         return idalumno;
     }
