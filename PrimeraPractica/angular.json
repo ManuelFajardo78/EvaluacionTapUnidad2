@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "PrimeraPractica": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PrimeraPractica"
+    }
+  },
+  "defaultProject": "PrimeraPractica",
+  "cli": {
+    "analytics": "ff7b3f19-830e-40f4-863b-761ea4dd3fd5"
+  }
 }
