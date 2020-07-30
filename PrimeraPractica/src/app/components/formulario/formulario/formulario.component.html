@@ -1,5 +1,5 @@
-<div class="container">
-    <form (ngSubmit)="onSubmit()">
+<div class="content">
+    <div id="left">
         <div align="center" class="form-group">
             <table border="0">
                 <tr>
@@ -12,7 +12,6 @@
                     </td>
                 </tr>
                 <tr>
-
                     <td width="50%"> Nombre estudiante: </td>
                     <td width="50%">
                         <input type="text" class="form-control" id="txtnomb" #nomb="ngModel" placeholder="Escriba el nombre " name="nomb" size="35" [(ngModel)]="model.nombre" required pattern="[A-Za-z ]+">
@@ -58,10 +57,21 @@
                         </td>
                     </tr>
             </table>
-            <div>
-
-            </div>
-            <button type="submit" size="100" class="btn btn-primary">Ingresar</button>
+            <button (click)="registrar()" size="100" class="btn btn-primary">Ingresar</button>
         </div>
-    </form>
+    </div>
+
+    <div id="right">
+        <div id="miCameraOnline">
+            <div>
+                <video #video id="video" width="300" height="250" autoplay class="center"></video>
+            </div>
+            <div>
+                <button href="#" (click)="capturar()">¡Capturar!</button>
+            </div>
+            <div>
+                <canvas #canvas id="canvas" width="500" height="420" class="center"></canvas>
+            </div>
+        </div>
+    </div>
 </div>

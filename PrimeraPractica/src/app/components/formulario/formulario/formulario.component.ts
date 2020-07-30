@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Buffer } from 'buffer';
 import { Estudiante } from '../../modelo/Estudiante.component';
-import { Routes, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { EstudianteService } from '../../../services/estudiante.service';
 declare const navigator: any;
 declare const MediaRecorder: any;
@@ -12,9 +13,18 @@ declare const MediaRecorder: any;
 })
 export class FormularioComponent implements OnInit {
   model: Estudiante = {id: '', cedula: '', nombre: '', apellido: '', direccion: '', telefono: '', corre_electronico: ''};
+  // audio
   public isRecording: boolean = false;
   private chunks: any = [];
   private mediaRecorder: any;
+  gaudio : any;
+
+  // imagen
+  @ViewChild('video') video: ElementRef;
+  @ViewChild('canvas') canvas: ElementRef;
+  foto: any;
+  detector: any;
+  image: any;
 
   constructor(private routes: Router, private servicio: EstudianteService) { 
     const onSuccess = stream => {
@@ -24,6 +34,7 @@ export class FormularioComponent implements OnInit {
         const blob = new Blob(this.chunks, { 'type': 'audio/ogg; codecs=opus' });
         this.chunks.length = 0;
         audio.src = window.URL.createObjectURL(blob);
+        this.gaudio = audio;
         audio.load();
         audio.play();
       };
@@ -39,9 +50,19 @@ export class FormularioComponent implements OnInit {
     navigator.getUserMedia({ audio: true }, onSuccess, e => console.log(e));
   }
 
+  public ngAfterViewInit() {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true }).then(screenStream => {
+        this.video.nativeElement.srcObject = screenStream;
+        this.video.nativeElement.play();
+      });
+    }
+  }
+
   ngOnInit(): void {
   }
-  onSubmit() {
+
+  registrar() {
     this.guardar(this.model);
   }
   guardar(estudiante: Estudiante) {
@@ -57,6 +78,18 @@ export class FormularioComponent implements OnInit {
   public stop() {
     this.isRecording = false;
     this.mediaRecorder.stop();
+  }
+
+  public capturar() {
+    var context = this.canvas.nativeElement.getContext("2d").drawImage(this.video.nativeElement, 0, 0, 600, 440);
+    this.foto = this.canvas.nativeElement.toDataURL("image/png");
+    this.foto = this.foto.split(",")[1];
+    this.image = {
+      Image: {
+        Bytes: new Buffer(this.foto, 'base64')
+      },
+    Attributes: ['ALL']
+    }
   }
 }
 
