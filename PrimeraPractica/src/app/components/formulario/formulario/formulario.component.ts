@@ -60,7 +60,7 @@ export class FormularioComponent {
         const blob = new Blob(this.chunks, { 'type': 'audio/ogg; codecs=opus' });
         this.chunks.length = 0;
         audio.src = window.URL.createObjectURL(blob);
-        this.gaudio = blob;
+        this.gaudio = audio;
         audio.load();
         audio.play();
       };

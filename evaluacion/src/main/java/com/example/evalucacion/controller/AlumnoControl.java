@@ -1,5 +1,5 @@
 
-package com.example.evalucacion.controlador;
+package com.example.evalucacion.controller;
 
 import com.example.evaluacion.model.Alumno;
 import com.example.evaluacion.repository.AlumnoRepositorio;

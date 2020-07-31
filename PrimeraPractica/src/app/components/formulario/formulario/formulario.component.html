@@ -3,11 +3,11 @@
         <div align="center" class="form-group">
             <table border="0">
                 <tr>
-                    <td width="50%"> IDENTIFICADOR: </td>
+                    <td width="50%"> Cedula: </td>
                     <td width="50%">
-                        <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba el Identificador" name="id" size="35" [(ngModel)]="model.id" maxlength="7" required>
+                        <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba su cedula" name="id" size="35" [(ngModel)]="model.cedula" maxlength="7" required>
                         <div *ngIf="id.touched && !id.valid">
-                            <div *ngIf="id.errors.required">Debe ingresar el ID</div>
+                            <div *ngIf="id.errors.required">Debe ingresar la cedula</div>
                         </div>
                     </td>
                 </tr>
