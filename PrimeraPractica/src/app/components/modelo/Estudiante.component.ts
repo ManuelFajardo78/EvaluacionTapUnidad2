@@ -1,9 +1,9 @@
 export interface Estudiante {
-    id: string;
     cedula: string;
     nombre: string;
     apellido: string;
+    corre_electronico: string;
     direccion: string;
     telefono: string;
-    corre_electronico: string;
+    institucion: string;
 }

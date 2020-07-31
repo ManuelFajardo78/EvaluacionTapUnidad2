@@ -10,12 +10,12 @@ import { environment } from 'src/environments/environment';
 export class EstudianteService {
 
   constructor(private  http: HttpClient) {}
-  Url = 'http://192.168.0.102:9094/api/v1/';
+  Url = 'http://localhost:9898/api/v1/alumno';
 
   getEstudiante() {
-    return this.http.get<Estudiante[]>(this.Url + 'alumno');
+    return this.http.get<Estudiante[]>(this.Url);
   }
   crearEstudiante(estudiante: Estudiante) {
-    return this.http.post<Estudiante>(this.Url + 'alumno', estudiante);
+    return this.http.post<Estudiante>(this.Url, estudiante);
   }
 }

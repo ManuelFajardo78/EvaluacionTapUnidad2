@@ -5,7 +5,7 @@
                 <tr>
                     <td width="50%"> Cedula: </td>
                     <td width="50%">
-                        <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba su cedula" name="id" size="35" [(ngModel)]="model.cedula" maxlength="7" required>
+                        <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba su cedula" name="id" size="35" [(ngModel)]="model.cedula" maxlength="10" required>
                         <div *ngIf="id.touched && !id.valid">
                             <div *ngIf="id.errors.required">Debe ingresar la cedula</div>
                         </div>
@@ -20,6 +20,18 @@
                         </div>
                         <div *ngIf="!nomb.valid">
                             <div *ngIf="nomb.errors.pattern">Solo debe ingresar letras</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%"> Apellido del estudiante: </td>
+                    <td width="50%">
+                        <input type="text" class="form-control" id="txtapll" #apll="ngModel" placeholder="Escriba el apellido " name="apll" size="35" [(ngModel)]="model.apellido" required pattern="[A-Za-z ]+">
+                        <div *ngIf="apll.touched && !apll.valid">
+                            <div *ngIf="apll.errors.required">Debe ingresar el apellido del estudiante</div>
+                        </div>
+                        <div *ngIf="!apll.valid">
+                            <div *ngIf="apll.errors.pattern">Solo debe ingresar letras</div>
                         </div>
                     </td>
                 </tr>
@@ -47,6 +59,18 @@
                         <td width="50%"> Correo Electronico: </td>
                         <td width="50%">
                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="model.corre_electronico" name="corre_electronico" size="35">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%"> Escriba el nombre de la institucion: </td>
+                        <td width="50%">
+                            <input type="text" class="form-control" id="txtinst" #inst="ngModel" placeholder="Escriba el nombre de la instituto " name="inst" size="35" [(ngModel)]="model.institucion" required pattern="[A-Za-z ]+">
+                            <div *ngIf="inst.touched && !inst.valid">
+                                <div *ngIf="inst.errors.required">Debe ingresar la institucion</div>
+                            </div>
+                            <div *ngIf="!inst.valid">
+                                <div *ngIf="inst.errors.pattern">Solo debe ingresar letras</div>
+                            </div>
                         </td>
                     </tr>
                     <tr>

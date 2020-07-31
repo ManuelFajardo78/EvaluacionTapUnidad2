@@ -13,8 +13,6 @@ import javax.persistence.Table;
 
 public class Alumno {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idalumno;
     @Column(name = "cedula", nullable = false)
     private String cedula;
     @Column(name = "nombre", nullable = false)
@@ -30,8 +28,10 @@ public class Alumno {
     @Column(name = "institucion", nullable = false)
     private String institucion;
 
-    public Alumno(long idalumno, String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String institucion) {
-        this.idalumno = idalumno;
+    public Alumno() {
+    }
+
+    public Alumno(String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String institucion) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -39,16 +39,6 @@ public class Alumno {
         this.direccion = direccion;
         this.telefono = telefono;
         this.institucion = institucion;
-    }
-
-    
-    
-    public long getIdalumno() {
-        return idalumno;
-    }
-
-    public void setIdalumno(long idalumno) {
-        this.idalumno = idalumno;
     }
 
     public String getCedula() {

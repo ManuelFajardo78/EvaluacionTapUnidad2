@@ -13,7 +13,7 @@ declare const MediaRecorder: any;
   styles: []
 })
 export class FormularioComponent {
-  model: Estudiante = {id: '', cedula: '', nombre: '', apellido: '', direccion: '', telefono: '', corre_electronico: ''};
+  model: Estudiante = {cedula: '', nombre: '', apellido: '', corre_electronico: '', direccion: '', telefono: '', institucion: ''};
   // audio
   public isRecording: boolean = false;
   private chunks: any = [];
@@ -86,8 +86,8 @@ export class FormularioComponent {
   }
 
   registrar() {
-    this.registrarBI();
-    this.registrarBA();
+    //this.registrarBI();
+    //this.registrarBA();
     this.guardar(this.model);
   }
   guardar(estudiante: Estudiante) {
