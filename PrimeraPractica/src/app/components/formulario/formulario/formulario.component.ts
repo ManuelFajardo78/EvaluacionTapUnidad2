@@ -125,7 +125,7 @@ export class FormularioComponent {
         const data = await new AWS.S3.ManagedUpload({
           params: {
             Bucket: this.albumBucketNameI,
-            Key: this.model.cedula + 'png',
+            Key: this.model.cedula + '.png',
             Body: this.archivo,
             ACL: 'public-read',
           },
@@ -153,7 +153,7 @@ export class FormularioComponent {
         const data = await new AWS.S3.ManagedUpload({
           params: {
             Bucket: this.albumBucketNameA,
-            Key: this.model.cedula + 'mp3',
+            Key: this.model.cedula + '.mp3',
             Body: this.gaudio,
             ACL: 'public-read',
           },
