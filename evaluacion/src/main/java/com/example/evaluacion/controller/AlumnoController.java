@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3200 )
 @RestController
-@RequestMapping("/api/vl")
+@RequestMapping("/api/v1")
 public class AlumnoController {
      @Autowired
     private AlumnoRepositorio alumnoR;
