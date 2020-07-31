@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge =3200 )
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3200 )
 @RestController
 @RequestMapping("/api/vl")
 public class AlumnoController {
