@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class EstudianteService {
 
   constructor(private  http: HttpClient) {}
-  Url = 'http://localhost:9898/api/v1/alumno';
+  Url = 'http://54.242.57.250:80/api/v1/alumno';
 
   getEstudiante() {
     return this.http.get<Estudiante[]>(this.Url);

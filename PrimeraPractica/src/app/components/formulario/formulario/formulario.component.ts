@@ -91,10 +91,15 @@ export class FormularioComponent implements OnInit{
   }
 
   registrar() {
-    if (this.ingaudio) {
-      this.registrarBI();
-      if (this.ingimg) {
-        this.guardar(this.model);
+    if (this.model.cedula == '' && this.model.nombre == '') {
+      alert('debe ingresar los datos necesarios');
+    } else {
+      this.registrarBA();
+      if (this.ingaudio) {
+        this.registrarBI();
+        if (this.ingimg) {
+          this.guardar(this.model);
+        }
       }
     }
   }
