@@ -82,15 +82,21 @@
         </table>
     </div>
     <div class="col-sm-6">
-        <div id="miCameraOnline">
-            <div>
-                <video #video id="video" width="300" height="250" autoplay class="center"></video>
-                <canvas #canvas id="canvas" width="300" height="250" class="center"></canvas>
-            </div>
-            <div>
-                <button href="#" (click)="capturar()">¡Capturar!</button>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <td id="miCameraOnline" width="50%">
+                    <video #video id="video" width="300" height="250" autoplay class="center"></video>
+                    <div>
+                        <button href="#" (click)="capturar()">¡Capturar!</button>
+                    </div>
+                </td>
+                <td width="50%">
+                    <canvas #canvas id="canvas" width="300" height="250" class="center"></canvas>
+                </td>
+            </tr>
+        </table>
     </div>
-    <button (click)="registrar()" type="button" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+</div>
+<div align="center">
+    <button (click)="registrar()" type="button" class="btn btn-lg btn-primary" disabled>Registrar los Datos</button>
 </div>

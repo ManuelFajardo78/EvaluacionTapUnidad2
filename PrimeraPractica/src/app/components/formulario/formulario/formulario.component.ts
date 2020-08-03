@@ -91,7 +91,6 @@ export class FormularioComponent implements OnInit{
   }
 
   registrar() {
-    this.registrarBA();
     if (this.ingaudio) {
       this.registrarBI();
       if (this.ingimg) {
