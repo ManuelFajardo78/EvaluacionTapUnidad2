@@ -57,7 +57,7 @@ export class FormularioComponent implements OnInit{
       this.mediaRecorder = new MediaRecorder(stream);
       this.mediaRecorder.onstop = e => {
         const audio = new Audio();
-        const blob = new Blob(this.chunks, { type: 'audio/ogg; codecs=opus' });
+        const blob = new Blob(this.chunks, { type: 'audio/mpeg; codecs=opus' });
         this.gaudio = blob;
         this.chunks.length = 0;
         audio.src = window.URL.createObjectURL(blob);
@@ -89,9 +89,9 @@ export class FormularioComponent implements OnInit{
   }
 
   registrar() {
-    this.registrarBI();
+    // this.registrarBI();
     this.registrarBA();
-    this.guardar(this.model);
+    // this.guardar(this.model);
   }
   guardar(estudiante: Estudiante) {
     this.servicio.crearEstudiante(estudiante).subscribe(data => {
@@ -156,7 +156,7 @@ export class FormularioComponent implements OnInit{
         const data = await new AWS.S3.ManagedUpload({
           params: {
             Bucket: this.albumBucketNameA,
-            Key: this.model.cedula + '.ogg',
+            Key: this.model.cedula + '.mp3',
             Body: this.gaudio,
             ACL: 'public-read',
           },
