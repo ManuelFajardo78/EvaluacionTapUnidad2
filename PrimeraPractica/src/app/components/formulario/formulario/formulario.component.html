@@ -1,101 +1,96 @@
-<div class="content">
-    <div id="left">
-        <div align="center" class="form-group">
-            <table border="0">
-                <tr>
-                    <td width="50%"> Cedula: </td>
-                    <td width="50%">
-                        <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba su cedula" name="id" size="35" [(ngModel)]="model.cedula" maxlength="10" required>
-                        <div *ngIf="id.touched && !id.valid">
-                            <div *ngIf="id.errors.required">Debe ingresar la cedula</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="50%"> Nombre estudiante: </td>
-                    <td width="50%">
-                        <input type="text" class="form-control" id="txtnomb" #nomb="ngModel" placeholder="Escriba el nombre " name="nomb" size="35" [(ngModel)]="model.nombre" required pattern="[A-Za-z ]+">
-                        <div *ngIf="nomb.touched && !nomb.valid">
-                            <div *ngIf="nomb.errors.required">Debe ingresar el nombre del estudiante</div>
-                        </div>
-                        <div *ngIf="!nomb.valid">
-                            <div *ngIf="nomb.errors.pattern">Solo debe ingresar letras</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="50%"> Apellido del estudiante: </td>
-                    <td width="50%">
-                        <input type="text" class="form-control" id="txtapll" #apll="ngModel" placeholder="Escriba el apellido " name="apll" size="35" [(ngModel)]="model.apellido" required pattern="[A-Za-z ]+">
-                        <div *ngIf="apll.touched && !apll.valid">
-                            <div *ngIf="apll.errors.required">Debe ingresar el apellido del estudiante</div>
-                        </div>
-                        <div *ngIf="!apll.valid">
-                            <div *ngIf="apll.errors.pattern">Solo debe ingresar letras</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
+<div class="row">
+    <div class="col-sm-6">
+        <table border="0">
+            <tr>
+                <td width="50%"> Cedula: </td>
+                <td width="50%">
+                    <input type="text" class="form-control" id="txtid" #id="ngModel" placeholder="Escriba su cedula" name="id" size="35" [(ngModel)]="model.cedula" maxlength="10" required>
+                    <div *ngIf="id.touched && !id.valid">
+                        <div *ngIf="id.errors.required">Debe ingresar la cedula</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="50%"> Nombre estudiante: </td>
+                <td width="50%">
+                    <input type="text" class="form-control" id="txtnomb" #nomb="ngModel" placeholder="Escriba el nombre " name="nomb" size="35" [(ngModel)]="model.nombre" required pattern="[A-Za-z ]+">
+                    <div *ngIf="nomb.touched && !nomb.valid">
+                        <div *ngIf="nomb.errors.required">Debe ingresar el nombre del estudiante</div>
+                    </div>
+                    <div *ngIf="!nomb.valid">
+                        <div *ngIf="nomb.errors.pattern">Solo debe ingresar letras</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="50%"> Apellido del estudiante: </td>
+                <td width="50%">
+                    <input type="text" class="form-control" id="txtapll" #apll="ngModel" placeholder="Escriba el apellido " name="apll" size="35" [(ngModel)]="model.apellido" required pattern="[A-Za-z ]+">
+                    <div *ngIf="apll.touched && !apll.valid">
+                        <div *ngIf="apll.errors.required">Debe ingresar el apellido del estudiante</div>
+                    </div>
+                    <div *ngIf="!apll.valid">
+                        <div *ngIf="apll.errors.pattern">Solo debe ingresar letras</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
 
-                    <tr>
-                        <td width="50%"> Direccion: </td>
-                        <td width="50%">
-                            <input type="text" class="form-control" id="txtdirec" #direc="ngModel" size="35" [(ngModel)]="model.direccion" name="direc" required>
-                            <div *ngIf="direc.touched && !direc.valid">
-                                <div *ngIf="direc.errors.required">Debe ingresar la direccion</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> telefono: </td>
-                        <td width="50%">
-                            <input type="text" class="form-control" id="txttelef" #telef="ngModel" size="35" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="model.telefono" name="telef" maxlength="13" required>
-                            <div *ngIf="telef.touched && !telef.valid">
-                                <div *ngIf="telef.errors.required">Debe ingresar el telefono</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> Correo Electronico: </td>
-                        <td width="50%">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="model.correo" name="corre_electronico" size="35">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> Escriba el nombre de la institucion: </td>
-                        <td width="50%">
-                            <input type="text" class="form-control" id="txtinst" #inst="ngModel" placeholder="Escriba el nombre de la instituto " name="inst" size="35" [(ngModel)]="model.institucion" required pattern="[A-Za-z ]+">
-                            <div *ngIf="inst.touched && !inst.valid">
-                                <div *ngIf="inst.errors.required">Debe ingresar la institucion</div>
-                            </div>
-                            <div *ngIf="!inst.valid">
-                                <div *ngIf="inst.errors.pattern">Solo debe ingresar letras</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="50%"> Garbar Saludo: </td>
-                        <td width="50%">
-                            <button [disabled]="isRecording" (click)="record()">Record</button>
-                            <button [disabled]="!isRecording" (click)="stop()">Stop</button>
-                        </td>
-                    </tr>
-            </table>
-            <button (click)="registrar()" size="100" class="btn btn-primary">Ingresar</button>
-        </div>
+                <tr>
+                    <td width="50%"> Direccion: </td>
+                    <td width="50%">
+                        <input type="text" class="form-control" id="txtdirec" #direc="ngModel" size="35" [(ngModel)]="model.direccion" name="direc" required>
+                        <div *ngIf="direc.touched && !direc.valid">
+                            <div *ngIf="direc.errors.required">Debe ingresar la direccion</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%"> telefono: </td>
+                    <td width="50%">
+                        <input type="text" class="form-control" id="txttelef" #telef="ngModel" size="35" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="model.telefono" name="telef" maxlength="13" required>
+                        <div *ngIf="telef.touched && !telef.valid">
+                            <div *ngIf="telef.errors.required">Debe ingresar el telefono</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%"> Correo Electronico: </td>
+                    <td width="50%">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="model.correo" name="corre_electronico" size="35">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%"> Escriba el nombre de la institucion: </td>
+                    <td width="50%">
+                        <input type="text" class="form-control" id="txtinst" #inst="ngModel" placeholder="Escriba el nombre de la instituto " name="inst" size="35" [(ngModel)]="model.institucion" required pattern="[A-Za-z ]+">
+                        <div *ngIf="inst.touched && !inst.valid">
+                            <div *ngIf="inst.errors.required">Debe ingresar la institucion</div>
+                        </div>
+                        <div *ngIf="!inst.valid">
+                            <div *ngIf="inst.errors.pattern">Solo debe ingresar letras</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%"> Garbar Saludo: </td>
+                    <td width="50%">
+                        <button [disabled]="isRecording" (click)="record()">Record</button>
+                        <button [disabled]="!isRecording" (click)="stop()">Stop</button>
+                    </td>
+                </tr>
+        </table>
     </div>
-
-    <div id="right">
+    <div class="col-sm-6">
         <div id="miCameraOnline">
             <div>
                 <video #video id="video" width="300" height="250" autoplay class="center"></video>
+                <canvas #canvas id="canvas" width="300" height="250" class="center"></canvas>
             </div>
             <div>
                 <button href="#" (click)="capturar()">¡Capturar!</button>
             </div>
-            <div>
-                <canvas #canvas id="canvas" width="300" height="250" class="center"></canvas>
-            </div>
         </div>
     </div>
+    <button (click)="registrar()" type="button" class="btn btn-primary btn-lg btn-block">Ingresar</button>
 </div>

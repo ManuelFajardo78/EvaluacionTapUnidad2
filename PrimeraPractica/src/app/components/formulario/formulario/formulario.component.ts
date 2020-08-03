@@ -24,8 +24,6 @@ export class FormularioComponent implements OnInit{
   @ViewChild('video') video: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
   foto: any;
-  detector: any;
-  image: any;
 
   // S3
   albumBucketNameI = 'bucketimgalumnos';
@@ -44,8 +42,12 @@ export class FormularioComponent implements OnInit{
   subiendo = false;
 
   archivo = null;
-  urlImagen = null;
   source: any;
+
+  // comprobra;
+  ingaudio = true;
+  ingimg = true;
+  ingdatos = true;
 
   constructor(private routes: Router, private servicio: EstudianteService) {
     // Inicializar el proveedor de credenciales de Amazon Cognito
@@ -89,9 +91,13 @@ export class FormularioComponent implements OnInit{
   }
 
   registrar() {
-    // this.registrarBI();
     this.registrarBA();
-    // this.guardar(this.model);
+    if (this.ingaudio) {
+      this.registrarBI();
+      if (this.ingimg) {
+        this.guardar(this.model);
+      }
+    }
   }
   guardar(estudiante: Estudiante) {
     this.servicio.crearEstudiante(estudiante).subscribe(data => {
@@ -112,12 +118,6 @@ export class FormularioComponent implements OnInit{
     var context = this.canvas.nativeElement.getContext("2d").drawImage(this.video.nativeElement, 0, 0, 300, 250);
     this.foto = this.canvas.nativeElement.toDataURL("image/png");
     this.foto = this.foto.split(",")[1];
-    this.image = {
-      Image: {
-        Bytes: new Buffer(this.foto, 'base64')
-      },
-    Attributes: ['ALL']
-    };
     this.archivo = this.foto;
   }
 
@@ -133,7 +133,6 @@ export class FormularioComponent implements OnInit{
             ACL: 'public-read',
           },
         }).promise();
-        this.urlImagen = data.Location;
         this.subiendo = false;
         this.showImagen = true;
         this.source = this.archivo;
@@ -141,12 +140,14 @@ export class FormularioComponent implements OnInit{
         this.error = true;
         const bucle = setInterval(() => {
           this.error = false;
+          this.ingimg = false;
           alert('Imagen no registardo');
           clearInterval(bucle);
         }, 2000);
       }
     } else {
       alert('Tomese una foto');
+      this.ingimg = false;
     }
   }
   public async registrarBA() {
@@ -168,11 +169,13 @@ export class FormularioComponent implements OnInit{
         this.error = true;
         const bucle = setInterval(() => {
           this.error = false;
+          this.ingaudio = false;
           alert('Audio no registardo');
           clearInterval(bucle);
         }, 2000);
       }
     } else {
+      this.ingaudio = false;
       alert('Grabe un audio');
     }
   }
