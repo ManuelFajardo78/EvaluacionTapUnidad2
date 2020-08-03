@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef} from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { Buffer } from 'buffer';
 import { Estudiante } from '../../modelo/Estudiante.component';
 import { Router } from '@angular/router';
@@ -12,8 +12,8 @@ declare const MediaRecorder: any;
   templateUrl: './formulario.component.html',
   styles: []
 })
-export class FormularioComponent {
-  model: Estudiante = {cedula: '', nombre: '', apellido: '', corre_electronico: '', direccion: '', telefono: '', institucion: ''};
+export class FormularioComponent implements OnInit{
+  model: Estudiante = {apellido: '', cedula: '', correo: '', direccion: '', institucion: '', nombre: '', telefono: ''};
   // audio
   public isRecording: boolean = false;
   private chunks: any = [];
@@ -57,10 +57,10 @@ export class FormularioComponent {
       this.mediaRecorder = new MediaRecorder(stream);
       this.mediaRecorder.onstop = e => {
         const audio = new Audio();
-        const blob = new Blob(this.chunks, { 'type': 'audio/ogg; codecs=opus' });
+        const blob = new Blob(this.chunks, { type: 'audio/ogg; codecs=opus' });
+        this.gaudio = blob;
         this.chunks.length = 0;
         audio.src = window.URL.createObjectURL(blob);
-        this.gaudio = blob;
         audio.load();
         audio.play();
       };
@@ -76,6 +76,9 @@ export class FormularioComponent {
     navigator.getUserMedia({ audio: true }, onSuccess, e => console.log(e));
   }
 
+  ngOnInit(): void {
+  }
+
   public ngAfterViewInit() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(screenStream => {
@@ -86,8 +89,8 @@ export class FormularioComponent {
   }
 
   registrar() {
-    //this.registrarBI();
-    //this.registrarBA();
+    this.registrarBI();
+    this.registrarBA();
     this.guardar(this.model);
   }
   guardar(estudiante: Estudiante) {
@@ -106,7 +109,7 @@ export class FormularioComponent {
   }
 
   public capturar() {
-    var context = this.canvas.nativeElement.getContext("2d").drawImage(this.video.nativeElement, 0, 0, 600, 440);
+    var context = this.canvas.nativeElement.getContext("2d").drawImage(this.video.nativeElement, 0, 0, 300, 250);
     this.foto = this.canvas.nativeElement.toDataURL("image/png");
     this.foto = this.foto.split(",")[1];
     this.image = {
@@ -125,8 +128,8 @@ export class FormularioComponent {
         const data = await new AWS.S3.ManagedUpload({
           params: {
             Bucket: this.albumBucketNameI,
-            Key: this.model.cedula + '.png',
-            Body: this.archivo,
+            Key: this.model.cedula + '.jpg',
+            Body: new Buffer(this.archivo, 'base64'),
             ACL: 'public-read',
           },
         }).promise();
@@ -153,7 +156,7 @@ export class FormularioComponent {
         const data = await new AWS.S3.ManagedUpload({
           params: {
             Bucket: this.albumBucketNameA,
-            Key: this.model.cedula + '.mp3',
+            Key: this.model.cedula + '.ogg',
             Body: this.gaudio,
             ACL: 'public-read',
           },

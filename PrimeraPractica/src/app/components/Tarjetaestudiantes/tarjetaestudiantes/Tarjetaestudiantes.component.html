@@ -1,11 +1,16 @@
 <div class="col mb-4">
     <div class="card animated fadeIn fast">
         <div class="card-body">
+            <img src="https://d24zusojdnpjps.cloudfront.net/{{estudiantes.cedula}}.jpg" alt="">
             <h5 class="card-title">Nombre Estudiante: {{estudiantes.nombre}}</h5>
             <p class="card-text">Apellido: {{estudiantes.apellido}} - telefono: {{estudiantes.telefono}}</p>
             <p class="card-text">Cedula:{{estudiantes.cedula}} </p>
             <p class="card-text">Direccion:{{estudiantes.direccion}} </p>
-            <p class="card-text">{{estudiantes.corre_electronico}} </p>
+            <p class="card-text">{{estudiantes.correo}} </p>
+            <audio>
+            <source src="https://d3n5fwxtuyi2o9.cloudfront.net/{{estudiantes.cedula}}.ogg" type= "audio/ogg">
+            </audio>
+
             <button type="button" class="btn btn-outline-primary block">ver más</button>
         </div>
     </div>
