@@ -27,8 +27,8 @@ public class AlumnoController {
         return alumnoR.findAll();
     }
     
-    @RequestMapping(value="/alumno/{idalumno}", method=RequestMethod.GET)
-    public List<Alumno> getAlumno(String cedula) {
+    @RequestMapping(value="/alumno/{cedula}", method=RequestMethod.GET)
+    public Alumno getAlumno(String cedula) {
         return alumnoR.buscarPorCedula(cedula);
     }
     
@@ -37,6 +37,16 @@ public class AlumnoController {
     @CrossOrigin
     public Alumno createAlumno(@Valid @RequestBody Alumno alumno){
         return alumnoR.save(alumno);
+    }
+    
+    @RequestMapping(value="/alumno/eliminar", method=RequestMethod.DELETE)
+    public void elimAlumno(Alumno alumno) {
+        alumnoR.delete(alumno);
+    }
+    
+    @RequestMapping(value="/alumno/editar", method=RequestMethod.PUT)
+    public void editAlumno(Alumno alumno) {
+        alumnoR.save(alumno);
     }
     
 }

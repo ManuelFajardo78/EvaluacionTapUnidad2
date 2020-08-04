@@ -23,7 +23,7 @@ public class alumnoServiceImp implements alumnoService {
     }
 
     @Override
-    public Alumno listarId(int id) {
+    public Alumno listarId(String cedula) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -36,10 +36,10 @@ public class alumnoServiceImp implements alumnoService {
     public Alumno edit(Alumno u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
-    public Alumno delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(String id) {
+         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

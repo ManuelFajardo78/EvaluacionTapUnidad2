@@ -18,4 +18,7 @@ export class EstudianteService {
   crearEstudiante(estudiante: Estudiante) {
     return this.http.post<Estudiante>(this.Url, estudiante);
   }
+  buscarEst(cedula: string) {
+    return this.http.get<Estudiante>(this.Url + '/' + cedula);
+  }
 }

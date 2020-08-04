@@ -12,9 +12,9 @@ import java.util.List;
 
 public interface alumnoService {
     List<Alumno>listar();
-    Alumno listarId(int id);
+    Alumno listarId(String id);
     Alumno add(Alumno u);
-    Alumno edit(Alumno u);
-    Alumno delete(int id);
+Alumno edit(Alumno u);
+    void delete(String id);
     
 }
