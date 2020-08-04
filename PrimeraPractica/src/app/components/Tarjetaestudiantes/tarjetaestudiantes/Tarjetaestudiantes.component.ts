@@ -17,7 +17,6 @@ export class TarjetaestudiantesComponent implements OnInit {
 
   bucketInstance: any;
   params: any;
-  model: Estudiante;
   constructor(private routes: Router, private servicio: EstudianteService) {
     // Inicializar el proveedor de credenciales de Amazon Cognito
     AWS.config.region = 'us-east-1'; // Región
@@ -30,12 +29,7 @@ export class TarjetaestudiantesComponent implements OnInit {
   }
 
   verCedula() {
-    // tslint:disable-next-line: max-line-length
-    this.model = {apellido: this.estudiantes.apellido, cedula: this.estudiantes.cedula, correo: this.estudiantes.correo, direccion: this.estudiantes.direccion, estado: false, institucion: this.estudiantes.institucion, nombre: this.estudiantes.nombre, telefono: this.estudiantes.telefono};
-    this.servicio.editarEstudiante(this.model).subscribe(datos => {
-      this.estudiantes = datos;
-      console.log('eliminado');
-    });
+    this.servicio.buscarEst('0302946389');
   }
 
   eliminarBukets() {

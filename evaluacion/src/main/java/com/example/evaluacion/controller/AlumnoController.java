@@ -33,7 +33,7 @@ public class AlumnoController {
         return alumnoR.findAll();
     }
     
-    @RequestMapping(value="/alumno/{cedula}", method=RequestMethod.GET)
+    @RequestMapping(value="/alumno/{cedula}")
     public Alumno getAlumno(String cedula) {
         return alumnoR.buscarPorCedula(cedula);
     }
@@ -58,7 +58,7 @@ public class AlumnoController {
     @RequestMapping(value="/alumno/editar", method=RequestMethod.PUT)
     public Alumno editAlumno(Alumno alumno) {
         alumnoR.save(alumno);
-        return  alumno;
+            return  alumno;
     }
     
 }
