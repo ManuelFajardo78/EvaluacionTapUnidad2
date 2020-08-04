@@ -4,6 +4,7 @@ import { Estudiante } from '../../modelo/Estudiante.component';
 import { Router } from '@angular/router';
 import { EstudianteService } from '../../../services/estudiante.service';
 import * as AWS from 'aws-sdk';
+import { truncate } from 'fs';
 declare const navigator: any;
 declare const MediaRecorder: any;
 
@@ -13,7 +14,7 @@ declare const MediaRecorder: any;
   styles: []
 })
 export class FormularioComponent implements OnInit{
-  model: Estudiante = {apellido: '', cedula: '', correo: '', direccion: '', institucion: '', nombre: '', telefono: ''};
+  model: Estudiante = {apellido: '', cedula: '', correo: '', direccion: '', estado: true, institucion: '', nombre: '', telefono: ''};
   // audio
   public isRecording: boolean = false;
   private chunks: any = [];

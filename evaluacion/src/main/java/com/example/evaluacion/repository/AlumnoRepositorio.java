@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 public interface AlumnoRepositorio extends JpaRepository<Alumno, Long>{
     @Query(value="Select a from Alumno a where a.cedula = :cedula")
     Alumno buscarPorCedula(@Param("cedula")String cedula);
+    @Query(value="Select a from Alumno a where a.estado = true")
+    List<Alumno> buscarEstado();
     //metodos
     @Override
     List <Alumno> findAll();

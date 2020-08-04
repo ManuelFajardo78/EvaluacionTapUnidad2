@@ -12,7 +12,7 @@ export class EstudiantesComponent implements OnInit {
   estudiantes: Estudiante[];
   constructor(private estudianteService: EstudianteService) {}
   ngOnInit() {
-    this.estudianteService.getEstudiante().subscribe(datos => {
+    this.estudianteService.getByEstado().subscribe(datos => {
       this.estudiantes = datos;
     });
   }

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 public class Alumno {
     @Id
-    @Column(name = "cedula", nullable = false)
+    @Column(name = "cedula", nullable = true)
     private String cedula;
     @Column(name = "nombre", nullable = false)
     private String nombre;
@@ -27,11 +27,13 @@ public class Alumno {
     private String telefono;
     @Column(name = "institucion", nullable = false)
     private String institucion;
+    @Column(name = "estado", nullable = false)
+    private boolean estado;
 
     public Alumno() {
     }
 
-    public Alumno(String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String institucion) {
+    public Alumno(String cedula, String nombre, String apellido, String correo, String direccion, String telefono, String institucion, boolean estado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -39,6 +41,15 @@ public class Alumno {
         this.direccion = direccion;
         this.telefono = telefono;
         this.institucion = institucion;
+        this.estado = estado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public String getCedula() {

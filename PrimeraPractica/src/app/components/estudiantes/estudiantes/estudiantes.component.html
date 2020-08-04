@@ -1,3 +1,3 @@
 <div class="row row-cols-1 row-cols-md-2">
-    <app-tarjetaestudiantes [estudiantes]="estudiante" *ngFor="let estudiante of estudiantes;let indice=index;"></app-tarjetaestudiantes>
+    <app-tarjetaestudiantes [estudiantes]="estudiante" *ngFor="let estudiante of estudiantes let id=index;" [indice]="id"></app-tarjetaestudiantes>
 </div>
