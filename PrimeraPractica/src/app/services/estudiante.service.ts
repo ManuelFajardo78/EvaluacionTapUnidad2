@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class EstudianteService {
 
   constructor(private  http: HttpClient) {}
-  // Url = 'http://3.81.98.251:80/api/v1/alumno';
+  // Url = 'http://54.237.227.220:80/api/v1/alumno';
   Url = 'http://localhost:80/api/v1/alumno';
   getEstudiante() {
     return this.http.get<Estudiante[]>(this.Url);
@@ -22,9 +22,7 @@ export class EstudianteService {
     return this.http.post<Estudiante>(this.Url, estudiante);
   }
   buscarEst(cedula: string) {
-    const url = `http://localhost:80/api/v1/alumno/${cedula}`;
-    return this.http.get(url);
-    // `${this.Url}/${cedula}`
+    return this.http.get<Estudiante>(this.Url + '/' + cedula);
   }
   editarEstudiante(estudiante: Estudiante) {
     return this.http.put<Estudiante>(this.Url + '/editar', estudiante);
