@@ -21,7 +21,6 @@ public class EvaluacionApplication {
                 .paths(PathSelectors.any()).build();
 
     }
-
     public static void main(String[] args) {
         SpringApplication.run(EvaluacionApplication.class, args);
     }

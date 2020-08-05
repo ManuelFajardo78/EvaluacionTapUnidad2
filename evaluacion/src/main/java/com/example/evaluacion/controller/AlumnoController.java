@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,7 +33,11 @@ public class AlumnoController {
         return alumnoR.findAll();
     }
     
-    @RequestMapping(value="/alumno/{cedula}")
+//    @RequestMapping(value="/alumno/{cedula}", method=RequestMethod.GET)
+//    public Alumno getAlumno(String cedula) {
+//        return alumnoR.buscarPorCedula(cedula);
+//    }
+    @GetMapping(value="/alumno/{cedula}")
     public Alumno getAlumno(String cedula) {
         return alumnoR.buscarPorCedula(cedula);
     }
@@ -50,15 +54,17 @@ public class AlumnoController {
         return alumnoR.save(alumno);
     }
     
-    @RequestMapping(value="/alumno/eliminar", method=RequestMethod.DELETE)
+    @DeleteMapping(value="/alumno/eliminar")
+    @CrossOrigin
     public void elimAlumno(Alumno alumno) {
         alumnoR.delete(alumno);
     }
     
-    @RequestMapping(value="/alumno/editar", method=RequestMethod.PUT)
-    public Alumno editAlumno(Alumno alumno) {
+    @PutMapping(value="/alumno/editar/{cedula}")
+    @ResponseBody
+    @CrossOrigin
+    public void editAlumno(@Valid @RequestBody Alumno alumno) {
         alumnoR.save(alumno);
-            return  alumno;
     }
     
 }

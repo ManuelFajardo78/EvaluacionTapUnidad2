@@ -21,5 +21,5 @@ public interface AlumnoRepositorio extends JpaRepository<Alumno, Long>{
     @Override
     Alumno save(Alumno u);
     @Override
-    void delete (Alumno u);
+    void delete (Alumno u); 
 }

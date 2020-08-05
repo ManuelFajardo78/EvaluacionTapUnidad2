@@ -1,17 +1,15 @@
 
 package com.example.evaluacion.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "alumno")
-
-public class Alumno {
+public class Alumno { 
     @Id
     @Column(name = "cedula", nullable = true)
     private String cedula;
