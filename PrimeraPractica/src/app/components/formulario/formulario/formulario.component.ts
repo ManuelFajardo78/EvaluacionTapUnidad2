@@ -44,6 +44,7 @@ export class FormularioComponent implements OnInit{
 
   archivo = null;
   source: any;
+  urlImagen = null;
 
   // comprobra;
   ingaudio = true;
@@ -155,6 +156,43 @@ export class FormularioComponent implements OnInit{
       this.ingimg = false;
     }
   }
+  onClickSubir = async (event) => {
+    event.preventDefault();
+
+    if (this.archivo) {
+      try {
+        console.log(this.archivo);
+        this.subiendo = true;
+        const data = await new AWS.S3.ManagedUpload({
+          params: {
+            Bucket: this.albumBucketNameI,
+            Key: this.archivo.name,
+            Body: this.archivo,
+            ACL: 'public-read',
+          },
+        }).promise();
+
+        this.urlImagen = data.Location;
+        this.subiendo = false;
+        this.showImagen = true;
+      } catch (error) {
+        this.error = true;
+        const bucle = setInterval(() => {
+          this.error = false;
+          clearInterval(bucle);
+        }, 2000);
+      }
+    } else {
+      alert('SELECCIONE UNA FOTO');
+    }
+  }
+
+  onChange = (event) => {
+    if (event.target.files.length > 0) {
+      this.archivo = event.target.files[0];
+    }
+  }
+
   public async registrarBA() {
     if (this.gaudio) {
       try {
