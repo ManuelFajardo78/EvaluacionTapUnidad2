@@ -1,15 +1,21 @@
 <div class="col mb-4" align="center">
-    <div class="card animated fadeIn fast">
+    <div class="card" style="width: 19rem;">
+        <img class="card-img-top" src="https://d24zusojdnpjps.cloudfront.net/{{estudiantes.cedula}}.jpg" alt="Card image cap">
         <div class="card-body">
-            <img src="https://d24zusojdnpjps.cloudfront.net/{{estudiantes.cedula}}.jpg" alt="">
-            <h5 class="card-title">{{estudiantes.nombre}} {{estudiantes.apellido}} </h5>
-            <p class="card-text">Cedula: {{estudiantes.cedula}} </p>
-            <p class="card-text">Dirección: {{estudiantes.direccion}} </p>
-            <p class="card-text">telefono: {{estudiantes.telefono}}</p>
-            <p class="card-text">Institución: {{estudiantes.institucion}} </p>
-            <p class="card-text">{{estudiantes.correo}} </p>
-            <audio src="https://d3n5fwxtuyi2o9.cloudfront.net/{{estudiantes.cedula}}.mp3" type="audio/mpeg" controls="controls" type="audio/mpeg" preload="preload">
-            </audio>
+            <h5 class="card-title">{{estudiantes.nombre}} {{estudiantes.apellido}}</h5>
+            <p class="card-text">Cedula: {{estudiantes.cedula}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Dirección: {{estudiantes.direccion}}</li>
+            <li class="list-group-item">telefono: {{estudiantes.telefono}}</li>
+            <li class="list-group-item">Institución: {{estudiantes.institucion}}</li>
+            <li class="list-group-item">{{estudiantes.correo}}</li>
+        </ul>
+        <audio src="https://d3n5fwxtuyi2o9.cloudfront.net/{{estudiantes.cedula}}.mp3" type="audio/mpeg" controls="controls" type="audio/mpeg" preload="preload">
+        </audio>
+        <div class="card-body">
+            <a href="#" class="card-link">Editar</a>
+            <a href="#" class="card-link">Eliminar</a>
         </div>
     </div>
 </div>
