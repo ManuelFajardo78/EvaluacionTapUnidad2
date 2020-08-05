@@ -50,6 +50,7 @@ export class FormularioComponent implements OnInit{
   ingaudio = true;
   ingimg = true;
   ingdatos = true;
+  subeft = 0;
 
   constructor(private routes: Router, private servicio: EstudianteService) {
     // Inicializar el proveedor de credenciales de Amazon Cognito
@@ -98,7 +99,9 @@ export class FormularioComponent implements OnInit{
     } else {
       this.registrarBA();
       if (this.ingaudio) {
-        this.registrarBI();
+        if (this.subeft == 0) {
+          this.registrarBI();
+        }
         if (this.ingimg) {
           this.guardar(this.model);
         }
@@ -166,7 +169,7 @@ export class FormularioComponent implements OnInit{
         const data = await new AWS.S3.ManagedUpload({
           params: {
             Bucket: this.albumBucketNameI,
-            Key: this.archivo.name,
+            Key: this.model.cedula + '.jpg',
             Body: this.archivo,
             ACL: 'public-read',
           },
@@ -175,6 +178,7 @@ export class FormularioComponent implements OnInit{
         this.urlImagen = data.Location;
         this.subiendo = false;
         this.showImagen = true;
+        this.subeft = 1;
       } catch (error) {
         this.error = true;
         const bucle = setInterval(() => {
