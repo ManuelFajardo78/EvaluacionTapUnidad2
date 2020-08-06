@@ -7,14 +7,13 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Dirección: {{estudiantes.direccion}}</li>
-            <li class="list-group-item">telefono: {{estudiantes.telefono}}</li>
+            <li class="list-group-item">teléfono: {{estudiantes.telefono}}</li>
             <li class="list-group-item">Institución: {{estudiantes.institucion}}</li>
             <li class="list-group-item">{{estudiantes.correo}}</li>
         </ul>
         <audio src="https://d3n5fwxtuyi2o9.cloudfront.net/{{estudiantes.cedula}}.mp3" type="audio/mpeg" controls="controls" type="audio/mpeg" preload="preload">
         </audio>
         <div class="card-body">
-            <button (click)="verCedula()">Buscar</button>
         </div>
     </div>
 </div>
