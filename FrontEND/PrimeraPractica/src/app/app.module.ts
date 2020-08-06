@@ -9,7 +9,6 @@ import { FormularioComponent } from './components/formulario/formulario/formular
 import { APPROUTING } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { EstudiantesComponent } from './components/estudiantes/estudiantes/estudiantes.component';
-import { EstudianteComponent } from './components/estudiante/estudiante/estudiante.component';
 import { TarjetaestudiantesComponent } from './components/Tarjetaestudiantes/tarjetaestudiantes/Tarjetaestudiantes.component';
 import { EstudianteService } from './services/estudiante.service';
 
@@ -21,7 +20,6 @@ import { EstudianteService } from './services/estudiante.service';
     HeaderComponent,
     FormularioComponent,
     EstudiantesComponent,
-    EstudianteComponent,
     TarjetaestudiantesComponent
   ],
   imports: [

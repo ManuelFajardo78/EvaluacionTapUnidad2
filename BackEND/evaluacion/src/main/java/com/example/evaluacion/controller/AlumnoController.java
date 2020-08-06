@@ -7,14 +7,9 @@ import com.example.evaluacion.servicio.alumnoService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,10 +28,6 @@ public class AlumnoController {
         return alumnoR.findAll();
     }
     
-//    @RequestMapping(value="/alumno/{cedula}", method=RequestMethod.GET)
-//    public Alumno getAlumno(String cedula) {
-//        return alumnoR.buscarPorCedula(cedula);
-//    }
     @GetMapping(value="/alumno/{cedula}")
     public Alumno getAlumno(String cedula) {
         return alumnoR.buscarPorCedula(cedula);
@@ -52,19 +43,6 @@ public class AlumnoController {
     @CrossOrigin
     public Alumno createAlumno(@Valid @RequestBody Alumno alumno){
         return alumnoR.save(alumno);
-    }
-    
-    @DeleteMapping(value="/alumno/eliminar")
-    @CrossOrigin
-    public void elimAlumno(Alumno alumno) {
-        alumnoR.delete(alumno);
-    }
-    
-    @PutMapping(value="/alumno/editar/{cedula}")
-    @ResponseBody
-    @CrossOrigin
-    public void editAlumno(@Valid @RequestBody Alumno alumno) {
-        alumnoR.save(alumno);
     }
     
 }
