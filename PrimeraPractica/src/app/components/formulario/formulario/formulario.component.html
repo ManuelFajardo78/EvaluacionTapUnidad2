@@ -86,12 +86,13 @@
                             <input type="file" name="archivo" (change)="onChange($event)" />
                             <h5 *ngIf="subiendo">Subiendo imagen...</h5>
                             <button href="#" (click)="onClickSubir($event)">Subir Imagen Seleccionada</button>
+                            <div class="" *ngIf="showImagen" style="width: 100px;">
+                                <h1>Imagen subida</h1>
+                                <a [href]="urlImagen" target="_blank"></a>
+                                <img class="imgn-fluid" [src]="urlImagen" alt="" />
+                            </div>
                         </form>
-                        <div class="" *ngIf="showImagen" style="width: 700px;">
-                            <h1>Imagen subida</h1>
-                            <a [href]="urlImagen" target="_blank">Abrir Imagen</a>
-                            <img class="imgn-fluid" [src]="urlImagen" alt="" />
-                        </div>
+
                     </td>
                 </tr>
         </table>
