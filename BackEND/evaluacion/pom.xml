@@ -90,6 +90,11 @@
             <version>4.2.0</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.codegen.v3</groupId>
+            <artifactId>swagger-codegen-maven-plugin</artifactId>
+            <version>3.0.21</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

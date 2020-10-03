@@ -10,7 +10,7 @@ import { stringType } from 'aws-sdk/clients/iam';
 export class EstudianteService {
 
   constructor(private  http: HttpClient) {}
-  Url = 'http://54.237.108.209:80/api/v1/alumno';
+  Url = 'https://54.237.108.209:80/api/v1/alumno';
   getEstudiante() {
     return this.http.get<Estudiante[]>(this.Url);
   }
